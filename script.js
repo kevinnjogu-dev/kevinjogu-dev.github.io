@@ -14,36 +14,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 60){
+    if (window.scrollY > 60) {
         navbar.classList.add("shadow");
-    }else{
+    } else {
         navbar.classList.remove("shadow");
     }
-
 });
 
 // Fade in animation
-const observer = new IntersectionObserver(entries=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
             entry.target.classList.add("show");
-
         }
-
     });
-
-},{
-    threshold:.2
+}, {
+    threshold: 0.2
 });
 
-document.querySelectorAll("section").forEach(section=>{
-
+document.querySelectorAll("section").forEach((section) => {
     section.classList.add("hidden");
-
     observer.observe(section);
-
 });
